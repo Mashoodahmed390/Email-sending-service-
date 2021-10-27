@@ -10,10 +10,10 @@ $result = $admin->get_all_merchant($db);
 
 if($result)
 {
-while($row = mysqli_fetch_array($result))
+while($row = mysqli_fetch_assoc($result))
 {
     
-    echo $row['name']." ". $row['email']." ".$row['password'].'<br>';
+    echo json_encode($row);
 }
 }
 else

@@ -1,7 +1,7 @@
 <?php 
 require_once '../../../config/db/database.php';
 require_once '../../model/Merchants/merchant.php';
-require_once '../../../JwtHandler.php';
+require_once '../../../php-jwt-master/JwtHandler.php';
 
 $data = json_decode(file_get_contents("php://input"));
 
@@ -33,7 +33,8 @@ else{
                    'status_code'=>'200'
                );
                http_response_code(200);
-               echo json_encode($response);
+               echo $mer->get_token()."\n";
+               echo json_encode($response);  
           }
           else{
           $response = array(

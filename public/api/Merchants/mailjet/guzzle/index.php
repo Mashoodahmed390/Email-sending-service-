@@ -1,8 +1,15 @@
 <?php
 require_once "vendor/autoload.php";
 require_once '../../../../../config/db/database.php';
+require_once '../../../../../php-jwt-master/JwtHandler.php';
 
 header("Access-Control-Allow-Methods: POST");
+
+$header = getallheaders();
+$jwt = $header["Authorization"];
+$jwt_token = new JwtHandler;
+$current_user = $jwt_token->_jwt_decode_data($jwt);
+
 
 use GuzzleHttp\Client;
  $data = json_decode(file_get_contents("php://input"));
@@ -26,6 +33,12 @@ $body = [
                 'Name' => $data->to_name
             ]
         ],
+        'Cc' => [
+            [
+                'Email' => $data->cc,
+                'Name' => $data->cc_name
+            ]
+        ],
         'Subject' => $data->subject,
         'HTMLPart' => $data->body
         ]
@@ -47,9 +60,20 @@ if($response->getStatusCode() == 200) {
     $db = $db->get_connection();
 
     $query = "INSERT INTO request (from_email,to_email,subject,body) VALUES ('$from','$to','$subject','$body1');";
-    
-    $result = $db->query($query);
+    $db->query($query);
 
+    $query = "SELECT * FROM merchant WHERE email = '$current_user->email'";
+    $result = $db->query($query);
+    $result = $result->fetch_array();
+
+    $payment = $result['credit'];
+    $payment = $payment-0.0489;
+
+    $query = "UPDATE merchant SET credit = '$payment' WHERE email = '$current_user->email';";
+    $db->query($query);
+    
+    $query = "INSERT INTO bill (Balance,merchant_id) VALUES ('$payment','$current_user->id');";
+    $result = $db->query($query);
     
     $body = $response->getBody();
     $response = json_decode($body);
