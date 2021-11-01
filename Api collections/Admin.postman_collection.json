@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "5a74db53-a97f-487a-94e9-b9405e8b06c3",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin sign up",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Mashood\",\r\n    \"email\":\"mashood@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"confrim_pass\":\"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/php-jwt-master/Ess/public/api/Admin/admin_sign_up.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-jwt-master",
+						"Ess",
+						"public",
+						"api",
+						"Admin",
+						"admin_sign_up.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin_sign_in",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"mashood@gmail.com\",\r\n    \"password\":\"13456\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/php-jwt-master/Ess/public/api/Admin/admin_sign_in.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-jwt-master",
+						"Ess",
+						"public",
+						"api",
+						"Admin",
+						"admin_sign_in.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_merchant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/ess/public/api/Admin/get_all_merchant.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ess",
+						"public",
+						"api",
+						"Admin",
+						"get_all_merchant.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

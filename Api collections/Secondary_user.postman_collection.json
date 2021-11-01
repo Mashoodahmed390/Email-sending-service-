@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "b1d7d57c-8192-4879-a6ff-f952dc6dee53",
+		"name": "Secondary_user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Secondary_user_sign_in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"hkhurshid95@gmail.com\",\r\n    \"password\":\"123456\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/ess/public/api/Secondary_user/secondary_user_sign_up.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ess",
+						"public",
+						"api",
+						"Secondary_user",
+						"secondary_user_sign_up.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Secondary_user_view_list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcLyIsImF1ZCI6Imh0dHA6XC9cL2xvY2FsaG9zdFwvIiwiaWF0IjoxNjM1MjU0MjI0LCJleHAiOjE2MzUyNTc4MjQsImRhdGEiOnsiaWQiOiI0IiwibmFtZSI6Im5hc2lyIiwiZW1haWwiOiJuYXNpckBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImNyZWRpdCI6Ijk5LjExOTgifX0.S6OTKn7a8lSfhWcWbLx7LU3jC9wuWHd9beLN5j80JKE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/ess/public/api/Secondary_user/secondary_user_check_list.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ess",
+						"public",
+						"api",
+						"Secondary_user",
+						"secondary_user_check_list.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Secondary_user_view_bill",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcLyIsImF1ZCI6Imh0dHA6XC9cL2xvY2FsaG9zdFwvIiwiaWF0IjoxNjM1MjQ1NzYyLCJleHAiOjE2MzUyNDkzNjIsImRhdGEiOnsibmFtZSI6ImhhcmlzIiwiZW1haWwiOiJoa2h1cnNoaWQ5NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImNoZWNraW5nX2xpc3RpbmciOiIxIiwiYmlsbGluZ19pbmZvIjoiMCIsIm1lcmNoYW50X2lkIjoiNCJ9fQ.EYS5N1IndYwsYDcL2y7memD2lnTe0Vu3gq0lnYvtY6A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/ess/public/api/Secondary_user/secondary_user_billing_info.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ess",
+						"public",
+						"api",
+						"Secondary_user",
+						"secondary_user_billing_info.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
